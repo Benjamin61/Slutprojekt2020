@@ -11,7 +11,8 @@ namespace Slutprojekt2020
 		static void Main(string[] args)
 		{
 			Console.WriteLine("Test");
-			Console.WriteLine("Your goal is to roam around in the house and find a key to escap!");
+			Console.WriteLine("Your goal is to roam around in the house and find a key to escape!");
+			Console.WriteLine("However, In every room there will be an obstacle you need to complete before you can find the key");
 			Console.WriteLine("What is your name?");
 			string playerName = Console.ReadLine();
 			Console.WriteLine("Good luck " + playerName );
