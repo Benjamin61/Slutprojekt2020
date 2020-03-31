@@ -14,13 +14,25 @@ namespace Slutprojekt2020
 			Console.WriteLine("Test");
 			Console.WriteLine("Your goal is to roam around in the house and find a key to escape!");
 			Console.WriteLine("However, In every room there will be an obstacle you need to complete before you can find the key");
-			Console.Write("What is your name?");
+			Console.Write("What is your name? ");
 			string playerName = Console.ReadLine();
-			Console.WriteLine("These are youe stats " + playerName);
-			Player P1 = new Player();
+			Console.WriteLine("These are your stats ");
+			Player P1 = new Player();//Skapar en ny instan av Player och kör konstruktorn
 			P1.name = playerName;
-			
+			Random generator = new Random();
+			int amount = generator.Next(2, 8);
 			Console.WriteLine("Good luck " + P1.name );
+			Console.WriteLine(P1.name + "Walks towards then end of the hallway, he sees 3 rooms ");
+			List<Rooms> ShowRooms = new List<Rooms>(amount);
+			
+			Console.WriteLine();
+			for (int i = 1; i < amount + 1; i++)
+			{
+				ShowRooms.Add(new Rooms());
+
+			}
+			Console.WriteLine(amount);
+			Console.WriteLine("Test");
 			Console.ReadKey();
 		}
 	}

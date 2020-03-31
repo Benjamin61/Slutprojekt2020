@@ -15,6 +15,7 @@ namespace Slutprojekt2020
 		public Rooms()
 		{
 			 roomNames = roomList[generator.Next(1, roomList.Count())];//Fortsätt här med att lägga in 1 nyckel i ett random rum
+			Console.WriteLine(roomNames);
 		}
 
 		

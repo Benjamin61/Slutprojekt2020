@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bedroom.cs" />
+    <Compile Include="bow.cs" />
     <Compile Include="CharactherCreation.cs" />
     <Compile Include="Items.cs" />
     <Compile Include="Kitchen.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rooms.cs" />
+    <Compile Include="Weapons.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

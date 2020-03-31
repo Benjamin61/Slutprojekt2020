@@ -10,7 +10,7 @@ namespace Slutprojekt2020
 	{
 		public Player()
 		{
-			Console.WriteLine("Test");
+			
 			CharactherStats["hp"] = generator.Next(100, 155);
 			Console.WriteLine("Your HP is " + CharactherStats["hp"]);
 			CharactherStats["strenght"] = generator.Next(10, 33);
