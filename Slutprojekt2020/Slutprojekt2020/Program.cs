@@ -22,15 +22,15 @@ namespace Slutprojekt2020
 			Random generator = new Random();
 			int amount = generator.Next(2, 8);
 			Console.WriteLine("Good luck " + P1.name );
-			Console.WriteLine(P1.name + "Walks towards then end of the hallway, he sees 3 rooms ");
 			List<Rooms> ShowRooms = new List<Rooms>(amount);
-			
-			Console.WriteLine();
-			for (int i = 1; i < amount + 1; i++)
-			{
-				ShowRooms.Add(new Rooms());
+			Console.WriteLine(P1.name + " Walks towards then end of the hallway when he suddenly sees the ");
+			ShowRooms.Add(new Rooms());
 
-			}
+			//Console.WriteLine();
+			//for (int i = 1; i < amount + 1; i++)
+			//{
+			
+			//}
 			Console.WriteLine(amount);
 			Console.WriteLine("Test");
 			Console.ReadKey();
