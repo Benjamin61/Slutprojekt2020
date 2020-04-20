@@ -8,8 +8,12 @@ namespace Slutprojekt2020
 {
 	class Program
 	{
+
+
+		static Random generator = new Random();
 		static void Main(string[] args)
 		{
+			int completedAllRooms = 0;
 			Items i1 = new Items();
 			Console.WriteLine("Test");
 			Console.WriteLine("Your goal is to roam around in the house and find a key to escape!");
@@ -19,9 +23,9 @@ namespace Slutprojekt2020
 			Console.WriteLine("These are your stats ");
 			Player p1 = new Player();//Skapar en ny instan av Player och kör konstruktorn
 			p1.name = playerName;
-			Random generator = new Random();
-			int amount = generator.Next(2, 8);
-			Console.WriteLine("Good luck " + p1.name );
+
+
+			Console.WriteLine("Good luck " + p1.name);
 			Console.WriteLine(p1.name + " Walks towards then end of the hallway when he suddenly sees");
 			Console.WriteLine(" 3 rooms with numbers 1-3 on them, Chose a door to enter");
 			string whatDoor = Console.ReadLine();
@@ -35,19 +39,33 @@ namespace Slutprojekt2020
 				correctRoomInput = int.TryParse(whatDoor, out roomDecide);
 
 			}
-			Console.WriteLine("Funkar???");
-		//	List<Rooms> ShowRooms = new List<Rooms>(amount);
 
-			//	ShowRooms.Add(new Rooms());
+			int amountOfRooms = generator.Next(3, 10);//Slumpar fram hur många rum som genereras
 
-			//Console.WriteLine();
-			//for (int i = 1; i < amount + 1; i++)
-			//{
 
-			//}
-			Console.WriteLine(amount);
-			Console.WriteLine("Test");
-			Console.ReadKey();
+			Queue<Rooms> onlyQueue = new Queue<Rooms>(); //Istället för en list skapas en kör där alla rum samlas
+
+			for (int i = 0; i < amountOfRooms + 1; i++)
+			{
+				onlyQueue.Enqueue(new Rooms()); //Skapar ny instanser av Rooms till det nått upp till det slumpade antalet AmountofRooms
+			}
+
+			while (completedAllRooms == 0)
+			{
+			}
+			if (onlyQueue.Count == 0) //Den del av koden kommer köras när Kön av rum är tom. Dvs man har klarat sig igenom alla rum
+			{
+				Console.WriteLine("You won");
+				completedAllRooms = 1;
+			}
+
+
+
 		}
+		int FightLoop()
+		{
+			Console.WriteLine();
+		}
+		
 	}
 }
