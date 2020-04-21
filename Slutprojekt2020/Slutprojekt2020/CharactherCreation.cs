@@ -32,7 +32,7 @@ namespace Slutprojekt2020
 			//}
 			//set { }
 		//}
-		void DisplayStats()
+		public void DisplayStats()
 		{
 			Console.WriteLine(" Now displaying" + name + "stats");
 			Console.WriteLine("HP: " + CharactherStats["hp"]);
@@ -68,6 +68,23 @@ namespace Slutprojekt2020
 			CharactherStats["hp"] = CharactherStats["hp"] - amount;
 			Console.WriteLine(name + " took " + amount + " damage and now has " + CharactherStats["hp"] + " hp left");
 			return CharactherStats["hp"];
+		}
+
+		public virtual int highLowAttack()
+		{
+			Console.WriteLine("[1] High risk or [2] Low risk");
+			string choice = Console.ReadLine();
+			int playerChoice;
+			bool transform = int.TryParse(choice, out playerChoice);
+			while (!transform || playerChoice != 1 && playerChoice != 2)
+			{
+				Console.WriteLine("Try again. Rember to answer 1 or 2");
+				choice = Console.ReadLine();
+				transform = int.TryParse(choice, out playerChoice);
+				
+				
+			}
+			return playerChoice;
 		}
 	}
 }

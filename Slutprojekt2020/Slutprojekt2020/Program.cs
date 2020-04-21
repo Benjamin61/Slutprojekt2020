@@ -52,19 +52,53 @@ namespace Slutprojekt2020
 
 			while (completedAllRooms == 0)
 			{
+				int whatChallenge = onlyQueue.Dequeue().WhatRoom(); //I inten whatchallenge tar paramtern upp värdet i metod whatroom och tar bort 1 rum från listan med Dequeue
+				if (whatChallenge == 1)
+				{
+					Console.WriteLine("Det blev en fight1");
+				}
+				if (whatChallenge == 2)
+				{
+					Console.WriteLine("Det blev stensaxpåse2");
+				}
+
+				if (whatChallenge == 3)
+				{
+					Console.WriteLine("Du möter en spådam3");
+				}
+				if (whatChallenge == 4)
+				{
+					Console.WriteLine("Vet inte4");
+				}
+				if (whatChallenge == 5)
+				{
+					Console.WriteLine("Kom på flera saker5");
+				}
+				if (completedAllRooms == 1)
+				{
+					Console.WriteLine("You won");
+					Console.ReadLine();
+				}
+				else if (completedAllRooms == 2)
+				{
+					Console.WriteLine("You lost");
+					Console.ReadLine();
+				}
+				if (onlyQueue.Count == 0) //Den del av koden kommer köras när Kön av rum är tom. Dvs man har klarat sig igenom alla rum
+				{
+					Console.WriteLine("You won");
+					completedAllRooms = 1;
+				}
 			}
-			if (onlyQueue.Count == 0) //Den del av koden kommer köras när Kön av rum är tom. Dvs man har klarat sig igenom alla rum
-			{
-				Console.WriteLine("You won");
-				completedAllRooms = 1;
-			}
 
 
 
+			Console.ReadKey();
 		}
 		int FightLoop()
 		{
 			Console.WriteLine();
+			return 1;
 		}
 		
 	}
