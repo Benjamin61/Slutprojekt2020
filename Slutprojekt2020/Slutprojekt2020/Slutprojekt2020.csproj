@@ -46,6 +46,7 @@
     <Compile Include="Bedroom.cs" />
     <Compile Include="bow.cs" />
     <Compile Include="CharactherCreation.cs" />
+    <Compile Include="Enemy.cs" />
     <Compile Include="Items.cs" />
     <Compile Include="Kitchen.cs" />
     <Compile Include="Bathroom.cs" />
