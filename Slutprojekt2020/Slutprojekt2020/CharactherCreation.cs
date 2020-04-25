@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Slutprojekt2020
 {
-	class CharactherCreation
+	class CharactherCreation : StarWarsAPI
 	{
 		public string name;
 		//protected int strenght; //Försöker använda mig av en dictionary men har kvar detta om det inte funkar
 
 		//protected int hp;
-		protected Dictionary<string, int> CharactherStats = new Dictionary<string, int>();
+		protected Dictionary<string, int> CharacterStats = new Dictionary<string, int>();
 
 		
 
@@ -20,23 +20,23 @@ namespace Slutprojekt2020
 
 		public CharactherCreation()
 		{
-			CharactherStats.Add("hp", 150); 
-			CharactherStats.Add("strenght", 0);
+			CharacterStats.Add("hp", 150); 
+			CharacterStats.Add("strenght", 0);
 		}
 
-		//public int HP
-		//{
-			//get
-			//{
-				//return CharactherStats["hp"];
-			//}
-			//set { }
-		//}
+		public int HP
+		{
+			get
+			{
+				return CharacterStats["hp"]; //retunerar hp
+			}
+		set { }
+	        }
 		public void DisplayStats()
 		{
 			Console.WriteLine(" Now displaying" + name + "stats");
-			Console.WriteLine("HP: " + CharactherStats["hp"]);
-			Console.WriteLine("Strenght: " + CharactherStats["strenght"]);
+			Console.WriteLine("HP: " + CharacterStats["hp"]);
+			Console.WriteLine("Strenght: " + CharacterStats["strenght"]);
 			//Console.WriteLine("HP:" + hp);
 			//Console.WriteLine("Strenght" + hp);
 		}
@@ -50,13 +50,13 @@ namespace Slutprojekt2020
 			if (randomCrit > 4)
 			{
 				Console.WriteLine("Random crit! Next hit will be empowered by 200%");
-				dmg = generator.Next(CharactherStats["strenght"], (CharactherStats["strenght"] + 3));
+				dmg = generator.Next(CharacterStats["strenght"], (CharacterStats["strenght"] + 3));
 				dmg = dmg * 3;
 				Console.WriteLine("You did " + dmg + " To the enemy!");
 			}
 			else
 			{
-				dmg = generator.Next(CharactherStats["strenght"], (CharactherStats["strenght"] + 3));
+				dmg = generator.Next(CharacterStats["strenght"], (CharacterStats["strenght"] + 3));
 				Console.WriteLine("You did " + dmg + " To the enemy!");
 			}
 			return dmg;
@@ -65,9 +65,9 @@ namespace Slutprojekt2020
 
 		public int DamageTaken(int amount)
 		{
-			CharactherStats["hp"] = CharactherStats["hp"] - amount;
-			Console.WriteLine(name + " took " + amount + " damage and now has " + CharactherStats["hp"] + " hp left");
-			return CharactherStats["hp"];
+			CharacterStats["hp"] = CharacterStats["hp"] - amount;
+			Console.WriteLine(name + " took " + amount + " damage and now has " + CharacterStats["hp"] + " hp left");
+			return CharacterStats["hp"];
 		}
 
 		public virtual int highLowAttack()

@@ -6,14 +6,7 @@ using System.Threading.Tasks;
 
 namespace Slutprojekt2020
 {
-	class Weapons : Items
+	class StarWarsAPI
 	{
-		protected int ExtraDamage;
-		protected int ExtraDefence;
-		public Weapons()
-		{
-			Console.WriteLine("TestWeapons");
-		}
 	}
-	
 }

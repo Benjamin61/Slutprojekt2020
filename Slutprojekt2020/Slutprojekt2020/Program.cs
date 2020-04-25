@@ -10,19 +10,21 @@ namespace Slutprojekt2020
 {
 	class Program
 	{
-
+		
 		
 		static Random generator = new Random();
 		static void Main(string[] args)
 		{
 
+			Enemy star1 = new Enemy();
+			star1.getEnemy();
 			
-			GetEnemy();
+			//GetEnemy();
 			
 			
 			int completedAllRooms = 0;
 			Items i1 = new Items();
-			
+			Weapons w1 = new Weapons();
 			Console.WriteLine("Your goal is to roam around in the house and find a key to escape!");
 			Console.WriteLine("However, In every room there will be an obstacle you need to complete before you can find the key");
 			Console.Write("What is your name? ");
@@ -84,6 +86,7 @@ namespace Slutprojekt2020
 				if (completedAllRooms == 1)
 				{
 					Console.WriteLine("You won");
+					Console.WriteLine("Här?");
 					Console.ReadLine();
 				}
 				else if (completedAllRooms == 2)
@@ -94,6 +97,7 @@ namespace Slutprojekt2020
 				if (onlyQueue.Count == 0) //Den del av koden kommer köras när Kön av rum är tom. Dvs man har klarat sig igenom alla rum
 				{
 					Console.WriteLine("You won");
+					Console.WriteLine("Quee tom");
 					completedAllRooms = 1;
 				}
 			}
@@ -102,12 +106,13 @@ namespace Slutprojekt2020
 
 			Console.ReadKey();
 		}
-		int FightLoop()
+		void FightLoop()
 		{
-			Console.WriteLine();
-			return 1;
+			Enemy e1 = new Enemy();
+			Console.WriteLine("You encounter" + e1.name + ". That wants to fight!");
+			while (e1.HP > 0 && 
 		}
-		static void GetEnemy()
+		/*static void GetEnemy()
 		{
 
 			RestClient client = new RestClient("https://swapi.dev/api/");
@@ -159,7 +164,7 @@ namespace Slutprojekt2020
 
 
 
-		}
+		}*/
 		
 		
 		
