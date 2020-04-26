@@ -12,18 +12,14 @@ namespace Slutprojekt2020
 		public Player() //En konsturktor som fastställer P1 grund stats
 		{
 			
-			CharacterStats["hp"] = generator.Next(100, 155);
+			CharacterStats["hp"] = generator.Next(10000, 15500);
 			Console.WriteLine("Your HP is " + CharacterStats["hp"]);
-			CharacterStats["strenght"] = generator.Next(10, 33);
+			CharacterStats["strenght"] = generator.Next(1000, 3300);
 			Console.WriteLine("Your strenght is " + CharacterStats["strenght"]);
 			Console.ReadKey();
 			
 		}
 
-		public virtual int ExtraDmg(int amount)
-		{
-			int extraDmg = generator.Next(8, 13);
-			return extraDmg;
-		}
+		
 	}
 }

@@ -36,8 +36,8 @@ namespace Slutprojekt2020
 			string playerName = Console.ReadLine(); //Lagrar spelarens namn i en string
 			Console.WriteLine("These are your stats ");
 			Player p1 = new Player();//Skapar en ny instan av Player och kör konstruktorn
-			Console.WriteLine("Nu har p1 körts");
-			bow b1 = new bow();
+			
+			
 			p1.name = playerName; //Sätter in spelarens input i instansens namn
 			//Weapons w1 = new Weapons();
 
@@ -60,41 +60,45 @@ namespace Slutprojekt2020
 			int amountOfRooms = generator.Next(3, 10);//Slumpar fram hur många rum som genereras
 
 
-			Queue<Rooms> onlyQueue = new Queue<Rooms>(); //Istället för en list skapas en kör där alla rum samlas
+			Queue<Rooms> allRooms = new Queue<Rooms>(); //Istället för en list skapas en kör där alla rum samlas
 
 			for (int i = 0; i < amountOfRooms + 1; i++)
 			{
-				onlyQueue.Enqueue(new Rooms()); //Skapar ny instanser av Rooms till det nått upp till det slumpade antalet AmountofRooms
+				allRooms.Enqueue(new Rooms()); //Skapar ny instanser av Rooms till det nått upp till det slumpade antalet AmountofRooms
 			}
 
 			while (completedAllRooms == 0) //Så längen inten completeedAllRooms == 0 så kommer denna loop att fortsätta
 			{
-				int whatChallenge = onlyQueue.Dequeue().WhatRoom(); //I inten whatchallenge tar paramtern upp värdet i metod whatroom och tar bort 1 rum från listan med Dequeue
+				int whatChallenge = allRooms.Dequeue().WhatRoom(); //I inten whatchallenge tar paramtern upp värdet i metod whatroom och tar bort 1 rum från listan med Dequeue
 				if (whatChallenge == 1 || whatChallenge == 2 || whatChallenge == 3 || whatChallenge == 4 || whatChallenge == 5) //Just nu leder alla rum till en fight, men programmet funkar så man kan göra olika challenges berodne på vilket rum man hamnar i
 				{
-					Console.WriteLine("Det blev en fight1");
+					
 					int round = 0;
-					
-					
+
+					Bow b1 = new Bow();
 					Enemy e1 = new Enemy(); //Skapar en ny instans av enemy
 					e1.getEnemy(); //Kör getEnemy metod som hämtar random namn från starwars api och slumpar mellan 3 namn
 					while (e1.HP > 0 && p1.HP > 0) //En loop som körs så länge båda spelare har över 0 hp kvar
 					{
-						//Console.Clear();
+						
 						Console.WriteLine("You encounter " + e1.name + ". that wants to fight!");
 						p1.DisplayStats(); //Kör metoden displaystats för båda karaktärer
 						e1.DisplayStats();
-						//i1.DisplayStats();
+						
 						round++;
 						Console.WriteLine("Round [" + round + "]");
 						Console.WriteLine("Chose High or low");
-						int Damage = p1.highLowAttack(); //Lagrar spelarens val i en int
+						int Damage = p1.HighLowAttack(); //Lagrar spelarens val i en int
 						
-						e1.DamageTaken(p1.DamageDone(Damage)); //Kör metod som tar bort hp från enemy, använder p1 metod som parameter
+						int extraDmg = b1.ExtraDmg();
+
+						
+						e1.DamageTaken(p1.DamageDone(Damage),extraDmg); //Kör metod som tar bort hp från enemy, använder p1 metod som parameter
+						
 						if (e1.HP > 0) //Om enemy har över 0 hp får hen också attackera
 						{
-							Damage = e1.highLowAttack(); //Lagrar e1 val av attack i en int
-							p1.DamageTaken(e1.DamageDone(Damage)); //Samma som när e1 tog dmg fast omvänt
+							Damage = e1.HighLowAttack(); //Lagrar e1 val av attack i en int
+							p1.DamageTaken(e1.DamageDone(Damage),Damage); //Samma som när e1 tog dmg fast omvänt
 						}
 						if (e1.HP <= 0) //Om enemy har 0 eller mindre hp så vinner man
 						{
@@ -102,7 +106,8 @@ namespace Slutprojekt2020
 							Console.WriteLine("Press any key when you are ready to proceed to the next enemy");
 							Console.ReadKey();
 							
-							//Console.Clear();
+							
+							Console.Clear();
 						}
 						else //ÖFÖFÖFÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖ
 						{
@@ -150,10 +155,10 @@ namespace Slutprojekt2020
 					Console.WriteLine("You lost");
 					Console.ReadLine();
 				}
-				if (onlyQueue.Count == 0) //Den del av koden kommer köras när Kön av rum är tom. Dvs man har klarat sig igenom alla rum
+				if (allRooms.Count == 0) //Den del av koden kommer köras när Kön av rum är tom. Dvs man har klarat sig igenom alla rum
 				{
 					Console.WriteLine("You cleared all the rooms! Congratulations");
-					Console.WriteLine("Quee tom");
+					
 					
 				}
 			}

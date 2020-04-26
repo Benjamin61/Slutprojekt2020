@@ -37,6 +37,7 @@ namespace Slutprojekt2020
 			Console.WriteLine(" Now displaying " + name + " stats");
 			Console.WriteLine("HP: " + CharacterStats["hp"]);
 			Console.WriteLine("Strenght: " + CharacterStats["strenght"]);
+			Console.WriteLine("");
 			//Console.WriteLine("HP:" + hp);
 			//Console.WriteLine("Strenght" + hp);
 		}
@@ -63,7 +64,7 @@ namespace Slutprojekt2020
 
 		}
 
-		public int DamageTaken(int amount) //Metod för att skriva ut hur mycket dmg man tagit
+		public int DamageTaken(int amount, int extraDmg) //Metod för att skriva ut hur mycket dmg man tagit
 		{
 			
 			CharacterStats["hp"] = CharacterStats["hp"] - amount;
@@ -72,7 +73,7 @@ namespace Slutprojekt2020
 		}
 		
 
-		public virtual int highLowAttack() //En metod för att låra spelaren välja typ av attack
+		public virtual int HighLowAttack() //En metod för att låra spelaren välja typ av attack
 		{
 			Console.WriteLine("[1] High risk or [2] Low risk");
 			string choice = Console.ReadLine(); //Lagrar valet i en string
@@ -89,11 +90,13 @@ namespace Slutprojekt2020
 			if (playerChoice == 1) //Skriver ut vilken typ av attack man valde
 			{
 				Console.WriteLine("You chose High risk");
+				Console.Clear();
 			}
 
 			else
 			{
 				Console.WriteLine("You chose Low risk");
+				Console.Clear();
 			}
 			return playerChoice; //Retunerar spelarens val så att det kan användas för slumpa fram attacken.
 		}

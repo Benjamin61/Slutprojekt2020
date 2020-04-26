@@ -10,8 +10,8 @@ namespace Slutprojekt2020
 	{
 		
 		
-		protected int ExtraDamage;
-		protected int ExtraDefence;
+		protected int extraDamage;
+		protected int extraDefence;
 		public Weapons()
 		{
 

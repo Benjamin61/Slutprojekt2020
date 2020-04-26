@@ -105,11 +105,11 @@ namespace Slutprojekt2020
 			}
 
 		}
-		public override int highLowAttack() //Override metod för att göra så att enemy kan välja high eller low risk attack också
+		public override int HighLowAttack() //Override metod för att göra så att enemy kan välja high eller low risk attack också
 		{
 			List<string> attacks = new List<string>() { "High Risk", "Low risk" };
 			int getAttack = generator.Next(1, 2); //Slumpar fram vilken typ av attack enemy använder
-			Console.WriteLine(name + "used" + attacks[getAttack] + "attack");
+			Console.WriteLine(name + "used " + attacks[getAttack] + " attack");
 			return getAttack;
 
 
