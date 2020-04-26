@@ -8,6 +8,7 @@ namespace Slutprojekt2020
 {
 	class Player : CharactherCreation
 	{
+		public int extraDmg;
 		public Player() //En konsturktor som fastställer P1 grund stats
 		{
 			
@@ -17,6 +18,12 @@ namespace Slutprojekt2020
 			Console.WriteLine("Your strenght is " + CharacterStats["strenght"]);
 			Console.ReadKey();
 			
+		}
+
+		public virtual int ExtraDmg(int amount)
+		{
+			int extraDmg = generator.Next(8, 13);
+			return extraDmg;
 		}
 	}
 }

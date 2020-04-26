@@ -28,7 +28,7 @@ namespace Slutprojekt2020
 			
 			
 			int completedAllRooms = 0; //En int som kommer ändras beroende på om man klarat alla rum
-			Items i1 = new Items();
+			
 			
 			Console.WriteLine("Your goal is to roam around in the house and find a key to escape!"); //Förklara spelet
 			Console.WriteLine("However, In every room there will be an obstacle you need to complete before you can find the key");
@@ -36,7 +36,10 @@ namespace Slutprojekt2020
 			string playerName = Console.ReadLine(); //Lagrar spelarens namn i en string
 			Console.WriteLine("These are your stats ");
 			Player p1 = new Player();//Skapar en ny instan av Player och kör konstruktorn
+			Console.WriteLine("Nu har p1 körts");
+			bow b1 = new bow();
 			p1.name = playerName; //Sätter in spelarens input i instansens namn
+			//Weapons w1 = new Weapons();
 
 
 			Console.WriteLine("Good luck " + p1.name);
@@ -81,10 +84,12 @@ namespace Slutprojekt2020
 						Console.WriteLine("You encounter " + e1.name + ". that wants to fight!");
 						p1.DisplayStats(); //Kör metoden displaystats för båda karaktärer
 						e1.DisplayStats();
+						//i1.DisplayStats();
 						round++;
 						Console.WriteLine("Round [" + round + "]");
 						Console.WriteLine("Chose High or low");
 						int Damage = p1.highLowAttack(); //Lagrar spelarens val i en int
+						
 						e1.DamageTaken(p1.DamageDone(Damage)); //Kör metod som tar bort hp från enemy, använder p1 metod som parameter
 						if (e1.HP > 0) //Om enemy har över 0 hp får hen också attackera
 						{
