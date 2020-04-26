@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Slutprojekt2020
 {
-	class Items
+	class Items : Player
 	{
-		protected int key;
-		protected int price;
+		
+		protected int sword;
+		
 	}
 }
