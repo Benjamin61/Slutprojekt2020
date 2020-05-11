@@ -8,8 +8,8 @@ namespace Slutprojekt2020
 {
 	class Bedroom : Rooms //Tänkte ha olika effekter /storylines beronde på vilket rum jag var i, med hjälp av random generator och skapa en instans av rummet men hade inte tid.
 	{
-		Player test = new Player();
-		public Bedroom()
+		
+		public Bedroom(Player p1)
 		{
 			Console.WriteLine("Konstruktor bedroom körs");
 			//Player 3 = new Player();
@@ -18,27 +18,27 @@ namespace Slutprojekt2020
 			Bow b1 = new Bow();
 			Enemy e1 = new Enemy(); //Skapar en ny instans av enemy
 			e1.getEnemy(); //Kör getEnemy metod som hämtar random namn från starwars api och slumpar mellan 3 namn
-			while (e1.HP > 0 && test.HP > 0) //En loop som körs så länge båda spelare har över 0 hp kvar
+			while (e1.HP > 0 && p1.HP > 0) //En loop som körs så länge båda spelare har över 0 hp kvar
 			{
 
 				Console.WriteLine("You encounter " + e1.name + ". that wants to fight!");
-				test.DisplayStats(); //Kör metoden displaystats för båda karaktärer
+				p1.DisplayStats(); //Kör metoden displaystats för båda karaktärer
 				e1.DisplayStats();
 
 				round++;
 				Console.WriteLine("Round [" + round + "]");
 				Console.WriteLine("Chose High or low");
-				int Damage = test.HighLowAttack(); //Lagrar spelarens val i en int
+				int Damage = p1.HighLowAttack(); //Lagrar spelarens val i en int
 
 				int extraDmg = b1.ExtraDmg();
 
 
-				e1.DamageTaken(test.DamageDone(Damage), extraDmg); //Kör metod som tar bort hp från enemy, använder test metod som parameter
+				e1.DamageTaken(p1.DamageDone(Damage), extraDmg); //Kör metod som tar bort hp från enemy, använder p1 metod som parameter
 
 				if (e1.HP > 0) //Om enemy har över 0 hp får hen också attackera
 				{
 					Damage = e1.HighLowAttack(); //Lagrar e1 val av attack i en int
-					test.DamageTaken(e1.DamageDone(Damage), Damage); //Samma som när e1 tog dmg fast omvänt
+					p1.DamageTaken(e1.DamageDone(Damage), Damage); //Samma som när e1 tog dmg fast omvänt
 				}
 				if (e1.HP <= 0) //Om enemy har 0 eller mindre hp så vinner man
 				{
@@ -51,7 +51,7 @@ namespace Slutprojekt2020
 				}
 				else //ÖFÖFÖFÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖ
 				{
-					if (test.HP <= 0) //Om p2 hp är 0 eller under förlorar man
+					if (p1.HP <= 0) //Om p2 hp är 0 eller under förlorar man
 					{
 
 
