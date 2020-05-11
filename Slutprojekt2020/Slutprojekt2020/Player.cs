@@ -8,7 +8,7 @@ namespace Slutprojekt2020
 {
 	class Player : CharactherCreation
 	{
-		public int extraDmg;
+		
 		public Player() //En konsturktor som fastställer P1 grund stats
 		{
 			

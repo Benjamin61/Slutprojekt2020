@@ -8,7 +8,7 @@ using RestSharp;
 
 namespace Slutprojekt2020
 {
-	class Rooms 
+	class Rooms : CharactherCreation
 	{
 
 		
@@ -25,7 +25,21 @@ namespace Slutprojekt2020
 		public int WhatRoom()
 		{
 			Console.WriteLine("You found the " + roomNames);
-			
+			if (roomNames == "Bathroom")
+			{
+				Console.WriteLine("Test test BathroomS");
+				Bedroom b1 = new Bedroom();
+			}
+			else if (roomNames == "Bedroom")
+			{
+				Console.WriteLine("Test test BedroomS");
+				Bedroom b1 = new Bedroom();
+			}
+			else
+			{
+				Console.WriteLine("Test test KitchenS");
+				Bedroom b1 = new Bedroom();
+			}
             return generator.Next(5); // Slumpar fram ett tal, beronde på vad talet är kommer man få göra ett minigame. //Denna del funkar komplett men har inte gjort olika minigames
 
 			

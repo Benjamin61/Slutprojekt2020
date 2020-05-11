@@ -54,6 +54,7 @@
     <Compile Include="Bow.cs" />
     <Compile Include="CharactherCreation.cs" />
     <Compile Include="Enemy.cs" />
+    <Compile Include="FightLoop.cs" />
     <Compile Include="Items.cs" />
     <Compile Include="Kitchen.cs" />
     <Compile Include="Bathroom.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rooms.cs" />
     <Compile Include="StarWarsAPI.cs" />
+    <Compile Include="Test.cs" />
     <Compile Include="Weapons.cs" />
   </ItemGroup>
   <ItemGroup>

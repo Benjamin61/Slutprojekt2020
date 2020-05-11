@@ -23,8 +23,8 @@ namespace Slutprojekt2020
 
 
 
-		
 
+		
 
 
 		public void getEnemy()

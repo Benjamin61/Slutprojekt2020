@@ -6,12 +6,20 @@ using System.Threading.Tasks;
 
 namespace Slutprojekt2020
 {
-	class Bedroom : Rooms //Tänkte ha olika effekter /storylines beronde på vilket rum jag var i, med hjälp av random generator och skapa en instans av rummet men hade inte tid.
+	class FightLoop 
 	{
-		Player test = new Player();
-		public Bedroom()
+		public class getPlayer
 		{
-			Console.WriteLine("Konstruktor bedroom körs");
+			
+			
+
+
+
+		}
+		Player test = new Player();
+		public FightLoop()
+		{
+			
 			//Player 3 = new Player();
 			int round = 0;
 

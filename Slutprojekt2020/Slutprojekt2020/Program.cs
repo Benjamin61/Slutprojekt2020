@@ -16,7 +16,7 @@ namespace Slutprojekt2020
 		static void Main(string[] args)
 		{
 
-
+			
 			
 			//Characther.whatEnemys();
 			
@@ -57,12 +57,12 @@ namespace Slutprojekt2020
 
 			}
 
-			int amountOfRooms = generator.Next(3, 10);//Slumpar fram hur många rum som genereras
+			int amountOfRooms = generator.Next(2, 3);//Slumpar fram hur många rum som genereras
 
 
 			Queue<Rooms> allRooms = new Queue<Rooms>(); //Istället för en list skapas en kör där alla rum samlas
 
-			for (int i = 0; i < amountOfRooms + 1; i++)
+			for (int i = 0; i < amountOfRooms + 1; i++) 
 			{
 				allRooms.Enqueue(new Rooms()); //Skapar ny instanser av Rooms till det nått upp till det slumpade antalet AmountofRooms
 			}
@@ -72,9 +72,11 @@ namespace Slutprojekt2020
 				int whatChallenge = allRooms.Dequeue().WhatRoom(); //I inten whatchallenge tar paramtern upp värdet i metod whatroom och tar bort 1 rum från listan med Dequeue
 				if (whatChallenge == 1 || whatChallenge == 2 || whatChallenge == 3 || whatChallenge == 4 || whatChallenge == 5) //Just nu leder alla rum till en fight, men programmet funkar så man kan göra olika challenges berodne på vilket rum man hamnar i
 				{
+					//Console.WriteLine("Nu körs f1");
+					//FightLoop f1 = new FightLoop();
+					//Console.WriteLine("Nu kördes f1");
+					/*int round = 0;
 					
-					int round = 0;
-
 					Bow b1 = new Bow();
 					Enemy e1 = new Enemy(); //Skapar en ny instans av enemy
 					e1.getEnemy(); //Kör getEnemy metod som hämtar random namn från starwars api och slumpar mellan 3 namn
@@ -118,32 +120,33 @@ namespace Slutprojekt2020
 								Console.WriteLine(e1.name + "Has defeated you");
 								completedAllRooms = 2;  //Ändrar completed all rooms så att loopen inte kommer köras längre
 							}
-						}
+						}*/
 						
 						
 						Console.ReadKey();
 
 																  
 						
-					}
 				}
-				if (whatChallenge == 2) //Har var tanken att ha olika minigames beroende på vilket rum nr som slumpades men har inte gjort flera minigames
-				{
-					//Console.WriteLine("Det blev stensaxpåse2");
-				}
+			
 
-				if (whatChallenge == 3)
-				{
+				//if (whatChallenge == 2) //Har var tanken att ha olika minigames beroende på vilket rum nr som slumpades men har inte gjort flera minigames
+				//{
+					//Console.WriteLine("Det blev stensaxpåse2");
+				//}
+
+				//if (whatChallenge == 3)
+				//{
 					//Console.WriteLine("Du möter en spådam3");
-				}
-				if (whatChallenge == 4)
-				{
+				//}
+				//if (whatChallenge == 4)
+				//{
 					//Console.WriteLine("Vet inte4");
-				}
-				if (whatChallenge == 5)
-				{
+				//}
+				//if (whatChallenge == 5)
+				//{
 					//Console.WriteLine("Kom på flera saker5");
-				}
+				//}
 				/*if (completedAllRooms == 1)
 				{
 					Console.WriteLine("You won this fight");
@@ -165,8 +168,13 @@ namespace Slutprojekt2020
 
 
 
-			Console.ReadKey();
+			//Console.ReadKey();
 		}
+
+		//void CreateRoom()
+		//{
+
+		//}
 		
 		/*static void GetEnemy()
 		{
