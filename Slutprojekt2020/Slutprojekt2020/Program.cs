@@ -16,53 +16,29 @@ namespace Slutprojekt2020
 		static void Main(string[] args)
 		{
 
-			
-			
-			//Characther.whatEnemys();
-			
-			
-			
-			
-			
-			
-			
-			
-			int completedAllRooms = 0; //En int som kommer ändras beroende på om man klarat alla rum
-			
-			
-			Console.WriteLine("Your goal is to roam around in the house and find a key to escape!"); //Förklara spelet
-			Console.WriteLine("However, In every room there will be an obstacle you need to complete before you can find the key");
-			Console.Write("What is your name? ");
-			string playerName = Console.ReadLine(); //Lagrar spelarens namn i en string
-			Console.WriteLine("These are your stats ");
 			Player p1 = new Player();//Skapar en ny instan av Player och kör konstruktorn
+
+			//Characther.whatEnemys();
+
+
+			string answer = Start(p1);
+			int input = InputCheck();
+
+
+
+
+			int completedAllRooms = 0; //En int som kommer ändras beroende på om man klarat alla rum
+
+
+
 			
-			
-			p1.name = playerName; //Sätter in spelarens input i instansens namn
-			//Weapons w1 = new Weapons();
-
-
-			Console.WriteLine("Good luck " + p1.name);
-			Console.WriteLine(p1.name + " Walks towards then end of the hallway when he suddenly sees");
-			Console.WriteLine(" 3 rooms with numbers 1-3 on them, Chose a door to enter");
-			string whatDoor = Console.ReadLine(); //Man får välja vilket rum man vill gå in i
-			int roomDecide; //Felsökning, så att spelaren inte kan krascha spelet
-			bool correctRoomInput = int.TryParse(whatDoor, out roomDecide);
-			while (!correctRoomInput || roomDecide <= 0 || roomDecide >= 4)
-			{
-				Console.WriteLine("Try again, remember to answer in numbers(1,2 or 3)");
-				Console.Write("Choice:");
-				whatDoor = Console.ReadLine();
-				correctRoomInput = int.TryParse(whatDoor, out roomDecide);
-
-			}
 
 			int amountOfRooms = generator.Next(2, 3);//Slumpar fram hur många rum som genereras
 
 
 			Queue<Rooms> allRooms = new Queue<Rooms>(); //Istället för en list skapas en kör där alla rum samlas
 
-			for (int i = 0; i < amountOfRooms + 1; i++) 
+			for (int i = 0; i < amountOfRooms + 1; i++)
 			{
 				allRooms.Enqueue(new Rooms()); //Skapar ny instanser av Rooms till det nått upp till det slumpade antalet AmountofRooms
 			}
@@ -121,31 +97,31 @@ namespace Slutprojekt2020
 								completedAllRooms = 2;  //Ändrar completed all rooms så att loopen inte kommer köras längre
 							}
 						}*/
-						
-						
-						Console.ReadKey();
 
-																  
-						
+
+					Console.ReadKey();
+
+
+
 				}
-			
+
 
 				//if (whatChallenge == 2) //Har var tanken att ha olika minigames beroende på vilket rum nr som slumpades men har inte gjort flera minigames
 				//{
-					//Console.WriteLine("Det blev stensaxpåse2");
+				//Console.WriteLine("Det blev stensaxpåse2");
 				//}
 
 				//if (whatChallenge == 3)
 				//{
-					//Console.WriteLine("Du möter en spådam3");
+				//Console.WriteLine("Du möter en spådam3");
 				//}
 				//if (whatChallenge == 4)
 				//{
-					//Console.WriteLine("Vet inte4");
+				//Console.WriteLine("Vet inte4");
 				//}
 				//if (whatChallenge == 5)
 				//{
-					//Console.WriteLine("Kom på flera saker5");
+				//Console.WriteLine("Kom på flera saker5");
 				//}
 				/*if (completedAllRooms == 1)
 				{
@@ -161,14 +137,51 @@ namespace Slutprojekt2020
 				if (allRooms.Count == 0) //Den del av koden kommer köras när Kön av rum är tom. Dvs man har klarat sig igenom alla rum
 				{
 					Console.WriteLine("You cleared all the rooms! Congratulations");
-					
-					
+
+
 				}
 			}
 
 
 
 			//Console.ReadKey();
+		}
+
+		static int InputCheck()
+		{
+			string whatDoor = Console.ReadLine(); //Man får välja vilket rum man vill gå in i
+			int roomDecide; //Felsökning, så att spelaren inte kan krascha spelet
+			bool correctRoomInput = int.TryParse(whatDoor, out roomDecide);
+			while (!correctRoomInput || roomDecide <= 0 || roomDecide >= 4)
+			{
+				Console.WriteLine("Try again, remember to answer in numbers(1,2 or 3)");
+				Console.Write("Choice:");
+				whatDoor = Console.ReadLine();
+				correctRoomInput = int.TryParse(whatDoor, out roomDecide);
+
+			}
+			return roomDecide;
+		}
+
+		static string Start(Player p1)
+		{
+			Console.WriteLine("Your goal is to roam around in the house and find a key to escape!"); //Förklara spelet
+			Console.WriteLine("However, In every room there will be an obstacle you need to complete before you can find the key");
+			Console.Write("What is your name? ");
+			string playerName = Console.ReadLine(); //Lagrar spelarens namn i en string
+			Console.WriteLine("These are your stats ");
+
+
+
+			p1.name = playerName; //Sätter in spelarens input i instansens namn
+								  //Weapons w1 = new Weapons();
+
+
+			Console.WriteLine("Good luck " + p1.name);
+			Console.WriteLine(p1.name + " Walks towards then end of the hallway when he suddenly sees");
+			Console.WriteLine(" 3 rooms with numbers 1-3 on them, Chose a door to enter");
+
+			return p1.name;
 		}
 
 		//void CreateRoom()

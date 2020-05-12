@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Slutprojekt2020
 {
-	class Bathroom : Rooms //Tänkte ha olika effekter /storylines beronde på vilket rum jag var i, med hjälp av random generator och skapa en instans av rummet men hade inte tid.
+	class Bathroom : Rooms
 	{
+
 	}
 }

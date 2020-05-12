@@ -31,7 +31,15 @@ namespace Slutprojekt2020
 				return CharacterStats["hp"]; //retunerar hp
 			}
 		set { }
-	        }
+	    }
+		public int Dmg
+		{
+			get
+			{
+				return CharacterStats["strenght"]; //retunerar hp
+			}
+			set { }
+		}
 		public void DisplayStats() //Metod för att visa statistiken för en instans av en klass
 		{
 			Console.WriteLine(" Now displaying " + name + " stats");
