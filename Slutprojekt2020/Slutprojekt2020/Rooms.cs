@@ -17,24 +17,23 @@ namespace Slutprojekt2020
 		protected static Random generator = new Random();
 		
 
-		public int WhatRoom()
+		public int WhatRoom() //Just nu skapas enbart instanser av bathroom då jag endast har ett minigame skapad för det rummet
 		{
-			roomNames = roomList[generator.Next(0, roomList.Count())];
+			roomNames = roomList[generator.Next(1, roomList.Count())];
 			Console.WriteLine("You found the " + roomNames);
 			if (roomNames == "Bathroom")
 			{
-				Console.WriteLine("Test test BathroomS");
-				Bedroom b1 = new Bedroom();
+				
+				Bathroom b1 = new Bathroom();
 			}
 			else if (roomNames == "Bedroom")
 			{
-				Console.WriteLine("Test test BedroomS");
-				Bedroom b1 = new Bedroom();
+
+				Bathroom b1 = new Bathroom();
 			}
 			else
 			{
-				Console.WriteLine("Test test KitchenS");
-				Bedroom b1 = new Bedroom();
+				Bathroom b1 = new Bathroom();
 			}
             return generator.Next(5); // Slumpar fram ett tal, beronde på vad talet är kommer man få göra ett minigame. //Denna del funkar komplett men har inte gjort olika minigames
 

@@ -49,6 +49,10 @@ namespace Slutprojekt2020
 			//Console.WriteLine("HP:" + hp);
 			//Console.WriteLine("Strenght" + hp);
 		}
+		public Dictionary<string, int> GetStats() //Ett dictionary som används för att retunera få spelarens stats
+		{
+			return CharacterStats;
+		}
 
 		
 
