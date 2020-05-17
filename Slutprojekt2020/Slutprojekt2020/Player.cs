@@ -40,17 +40,17 @@ namespace Slutprojekt2020
 			
 		}
 		
-		public int getWhoWon() //Metod för att se om det spelaren vunnit
+		public int GetWhoWon() //Metod för att se om det spelaren vunnit
 		{
 			return winCheck;
 		}
-		public void setWinner(int temp) //Hämtar ett värdet från resultatet av fighten
+		public void SetWinner(int temp) //Hämtar ett värdet från resultatet av fighten
 		{
 			winCheck = temp;
 			
 		}
 
-		public bool playerResults(bool temp) //Bool som ändras beroende på om man dör av enemy eller vinner
+		public bool PlayerResults(bool temp) //Bool som ändras beroende på om man dör av enemy eller vinner
 		{
 			if (winCheck == 1)
 			{

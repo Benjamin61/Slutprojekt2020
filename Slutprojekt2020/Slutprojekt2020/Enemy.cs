@@ -27,7 +27,7 @@ namespace Slutprojekt2020
 		
 
 
-		public void getEnemy()
+		public void GetEnemy()
 		{
 			RestClient client = new RestClient("https://swapi.dev/api/"); //En client som skickar en förfrågan till starwars api
 			int getNumber = generator.Next(89); //Slumpar fram ett nummber
@@ -78,26 +78,26 @@ namespace Slutprojekt2020
 		public Enemy()//Konstruktor som kommer köras när en ny instans ev enemy skapas
 		{
 
-			int EnemyAttacks = generator.Next(1, 4); //Slumpar fram vilken typ av attack det blir
+			int enemyAttacks = generator.Next(1, 4); //Slumpar fram vilken typ av attack det blir
 			
 
 			
 			
 			
 
-			if (EnemyAttacks == 1) //Om svaret blir 1 skapas dessa värden för enemy
+			if (enemyAttacks == 1) //Om svaret blir 1 skapas dessa värden för enemy
 			{
 				CharacterStats["hp"] = generator.Next(CharacterStats["hp"], 200);
 				CharacterStats["strenght"] = generator.Next(20, 30);
 				
 			}
-			else if (EnemyAttacks == 2) //Samma fast andra värden
+			else if (enemyAttacks == 2) //Samma fast andra värden
 			{
 				CharacterStats["hp"] = generator.Next(CharacterStats["hp"], 200);
 				CharacterStats["strenght"] = generator.Next(10, 40);
 				
 			}
-			else if (EnemyAttacks == 3)
+			else if (enemyAttacks == 3)
 			{
 				CharacterStats["hp"] = generator.Next(CharacterStats["hp"], 200);
 				CharacterStats["strenght"] = generator.Next(1, 70);

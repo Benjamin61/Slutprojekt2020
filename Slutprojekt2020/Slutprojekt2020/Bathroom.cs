@@ -9,22 +9,22 @@ namespace Slutprojekt2020
 	class Bathroom : Rooms
 	{
 		
-		private Dictionary<string, int> PlayerStats = new Dictionary<string, int>();
-		private Dictionary<string, int> EnemyStats = new Dictionary<string, int>();
+		private Dictionary<string, int> playerStats = new Dictionary<string, int>();
+		private Dictionary<string, int> enemyStats = new Dictionary<string, int>();
 		public Bathroom()
 		{
-			PlayerStats.Add("hp", 5);
-			PlayerStats.Add("strenght", 1);
+			playerStats.Add("hp", 5);
+			playerStats.Add("strenght", 1);
 
-			EnemyStats.Add("hp", 10);
-			EnemyStats.Add("strenght", 2);
+			enemyStats.Add("hp", 10);
+			enemyStats.Add("strenght", 2);
 			
 			
 		}
 
 		public Dictionary<string, int> ImportStats(Dictionary<string, int> placeholder)
 		{
-			PlayerStats = placeholder;
+			playerStats = placeholder;
 			return placeholder;
 		}
 
@@ -36,10 +36,10 @@ namespace Slutprojekt2020
 
 			Bow b1 = new Bow();
 			 
-			e1.getEnemy(); //Kör getEnemy metod som hämtar random namn från starwars api och slumpar mellan 3 namn
+			e1.GetEnemy(); //Kör getEnemy metod som hämtar random namn från starwars api och slumpar mellan 3 namn
 			while (e1.HP > 0 && p1.HP > 0) //En loop som körs så länge båda spelare har över 0 hp kvar
 			{
-				int round = 0;
+				int round = -1;
 				round++;
 				Console.WriteLine("You encounter " + e1.name + ". that wants to fight!");
 				p1.DisplayStats(); //Kör metoden displaystats för båda karaktärer
@@ -76,9 +76,9 @@ namespace Slutprojekt2020
 
 
 						Console.WriteLine(e1.name + "Has defeated you");
-						p1.setWinner(2); //Ändrar temp värdet till 2 så att  wincheck == 2 dvs man förlorar
+						p1.SetWinner(2); //Ändrar temp värdet till 2 så att  wincheck == 2 dvs man förlorar
 					
-						p1.playerResults(false); //Boolen kommer bli false och spelet avslutas
+						p1.PlayerResults(false); //Boolen kommer bli false och spelet avslutas
 					
 						
 					

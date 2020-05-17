@@ -14,12 +14,15 @@ namespace Slutprojekt2020
 		
 		protected List<string> roomList = new List<string>() { "Bathroom", "Bedroom", "Kitchen" }; //Finns 3 olika rum man kan hamna i
 		protected string roomNames;
-		protected static Random generator = new Random();
-		
+		//protected static Random generator = new Random();
+		public Rooms()
+		{
+			roomNames = roomList[generator.Next(1, roomList.Count())];
+		}
 
 		public int WhatRoom() //Just nu skapas enbart instanser av bathroom då jag endast har ett minigame skapad för det rummet
 		{
-			roomNames = roomList[generator.Next(1, roomList.Count())];
+			
 			Console.WriteLine("You found the " + roomNames);
 			if (roomNames == "Bathroom")
 			{

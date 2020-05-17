@@ -45,7 +45,7 @@ namespace Slutprojekt2020
 				allRooms.Enqueue(new Rooms()); //Skapar ny instanser av Rooms till det nått upp till det slumpade antalet AmountofRooms
 			}
 
-			while (p1.getWhoWon() == 0) //Så längen inten get who won är 0 så kommer denna loop att fortsätta
+			while (p1.GetWhoWon() == 0) //Så längen inten get who won är 0 så kommer denna loop att fortsätta
 			{
 				int whatChallenge = allRooms.Dequeue().WhatRoom(); //I inten whatchallenge tar paramtern upp värdet i metod whatroom och tar bort 1 rum från listan med Dequeue
 				if (whatChallenge == 1 || whatChallenge == 2 || whatChallenge == 3 || whatChallenge == 4 || whatChallenge == 5) //Just nu leder alla rum till en fight, men programmet funkar så man kan göra olika challenges berodne på vilket rum man hamnar i
@@ -62,7 +62,7 @@ namespace Slutprojekt2020
 				
 				if (!allRooms.Any()) //Den del av koden kommer köras när Kön av rum är tom. Dvs man har klarat sig igenom alla rum
 				{
-					p1.playerResults(true);
+					p1.PlayerResults(true);
 					Console.WriteLine("You cleared all the rooms! Congratulations");
 					Console.WriteLine("When you press enter the game will be closed");
 					Console.ReadKey();
